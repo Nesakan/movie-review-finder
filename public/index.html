@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Review Finder | Search Movies & Ratings</title>
+    <meta name="description"
+        content="Search for movies and discover ratings, plots, and reviews from OMDb's extensive database.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="logo">
+                <span class="logo-icon">🎬</span>
+                Movie Review Finder
+            </h1>
+            <p class="tagline">Click any poster to view full details</p>
+        </header>
+
+        <!-- Search Section -->
+        <section class="search-section">
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search for a movie..."
+                    autocomplete="off">
+                <button id="searchButton" class="search-button">
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="M21 21l-4.35-4.35"></path>
+                    </svg>
+                    Search
+                </button>
+            </div>
+        </section>
+
+        <!-- Loading Spinner -->
+        <div id="loader" class="loader hidden">
+            <div class="spinner"></div>
+            <p>Searching movies...</p>
+        </div>
+
+        <!-- Error Message -->
+        <div id="errorMessage" class="error-message hidden">
+            <span class="error-icon">⚠️</span>
+            <p id="errorText">An error occurred</p>
+        </div>
+
+        <!-- Results Grid -->
+        <section id="resultsSection" class="results-section hidden">
+            <h2 class="results-title">Search Results</h2>
+            <div id="resultsGrid" class="results-grid"></div>
+        </section>
+
+        <!-- Empty State -->
+        <div id="emptyState" class="empty-state">
+            <div class="empty-icon">🎥</div>
+            <h2>Start Your Search</h2>
+            <p>Enter a movie title above to discover ratings and reviews</p>
+        </div>
+    </div>
+
+    <!-- Movie Details Modal -->
+    <div id="movieModal" class="modal hidden">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose" aria-label="Close modal">&times;</button>
+
+            <div class="modal-body">
+                <div class="modal-poster">
+                    <img id="modalPoster" src="" alt="Movie poster">
+                </div>
+                <div class="modal-info">
+                    <h2 id="modalTitle" class="modal-title"></h2>
+                    <div class="modal-meta">
+                        <span id="modalYear" class="modal-year"></span>
+                        <span id="modalRated" class="modal-rated"></span>
+                        <span id="modalRuntime" class="modal-runtime"></span>
+                    </div>
+                    <div id="modalRating" class="modal-rating"></div>
+                    <div id="modalGenre" class="modal-genre"></div>
+                    <div class="modal-section">
+                        <h3>Plot</h3>
+                        <p id="modalPlot" class="modal-plot"></p>
+                    </div>
+                    <div class="modal-section">
+                        <h3>Cast & Crew</h3>
+                        <p id="modalDirector" class="modal-crew"></p>
+                        <p id="modalActors" class="modal-crew"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Loading -->
+    <div id="modalLoader" class="modal-loader hidden">
+        <div class="spinner"></div>
+        <p>Loading details...</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

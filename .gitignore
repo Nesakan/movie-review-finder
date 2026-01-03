@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# Environment variables (keep your API key secret!)
+.env
+.env.local
+
+# Vercel
+.vercel/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
